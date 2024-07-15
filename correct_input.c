@@ -54,17 +54,17 @@ int correct_input(int ac, char **av, t_inputs *input)
         return(0);
     }
     input->philo_num = ft_atoi(av[1]);
-    input->time_d = ft_atoi(av[2]);
-    input->time_e = ft_atoi(av[3]);
-    input->time_s = ft_atoi(av[4]);
+    input->time_die = ft_atoi(av[2]);
+    input->time_eat = ft_atoi(av[3]);
+    input->time_sleep = ft_atoi(av[4]);
     if(ac == 6)
         input->eat_num = ft_atoi(av[5]);
     else
         input->eat_num = -1;
     printf("philo_num = %zu\n", input->philo_num);
-    printf("time_d = %zu\n", input->time_d);
-    printf("time_e = %zu\n", input->time_e);
-    printf("time_s = %zu\n", input->time_s);
+    printf("time_d = %zu\n", input->time_die);
+    printf("time_e = %zu\n", input->time_eat);
+    printf("time_s = %zu\n", input->time_sleep);
     printf("eat_num = %jd\n", input->eat_num);
     return(1);
 }
