@@ -36,3 +36,12 @@ size_t get_cur_time(void)
 // 		i++;
 // 	}
 // }
+
+void ft_usleep(size_t milisec, t_inputs *input)
+{
+	size_t start;
+
+	start = get_cur_time();
+	while(milisec > get_cur_time() - start && (!input->is_dead))
+		;
+}

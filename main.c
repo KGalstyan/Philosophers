@@ -17,6 +17,12 @@ int main(int argc, char **argv)
     if(!memory_allocation(&input))
         return(1);
     init_data(&input);
+    //while()
+    if(!create_tread(&input))
+    {
+        printf("creat thread error\n");
+        return(1);
+    }
     printf("all right bro\n");
     memory_clean(&input);
     system("leaks philo");

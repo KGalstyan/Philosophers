@@ -42,7 +42,9 @@ size_t ft_atoi(const char *nptr);
 // utils //
 int	is_digit(char h);
 void ft_prt(t_inputs *input);
+
 size_t get_cur_time(void);
+void ft_usleep(size_t milisec, t_inputs *input);
 
 // input checkers //
 int correct_input(int ac, char **av, t_inputs *input);
@@ -54,5 +56,7 @@ void memory_clean(t_inputs *input);
 // initialization //
 void init_data(t_inputs *input);
 
+// threads //
+int create_tread(t_inputs *input);
 
 #endif
