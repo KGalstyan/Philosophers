@@ -10,13 +10,14 @@
 
 typedef struct s_philo
 {
-    pthread_t tread;
+    pthread_t thread;
     int id;
     int eaten_num;
+    size_t last_eat_time;
     pthread_mutex_t *left_fork;
     pthread_mutex_t *right_fork;
-    pthread_mutex_t *eat_lock;
-    pthread_mutex_t *die_lock;
+    // pthread_mutex_t *mael_lock;
+    // pthread_mutex_t *die_lock;
 } t_philo;
 
 typedef struct s_inputs
@@ -27,9 +28,10 @@ typedef struct s_inputs
     size_t time_sleep;
     ssize_t eat_num;
     size_t start_time;
-    int die_status;
-    pthread_mutex_t eat_lock;
-    pthread_mutex_t die_lock;
+    int is_dead;
+    pthread_mutex_t *forks;
+    // pthread_mutex_t meal_lock;
+    // pthread_mutex_t die_lock;
     t_philo *philos;
 } t_inputs;
 
@@ -37,13 +39,20 @@ typedef struct s_inputs
 size_t ft_strlen(char *str);
 size_t ft_atoi(const char *nptr);
 
+// utils //
+int	is_digit(char h);
+void ft_prt(t_inputs *input);
+size_t get_cur_time(void);
+
 // input checkers //
 int correct_input(int ac, char **av, t_inputs *input);
 
-//utils
-int	is_digit(char h);
+// allocation //
+int memory_allocation(t_inputs *input);
+void memory_clean(t_inputs *input);
 
-void ft_prt(t_inputs *input);
-void init_main(t_inputs *input, t_philo *philos);
+// initialization //
+void init_data(t_inputs *input);
+
 
 #endif

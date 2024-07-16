@@ -3,7 +3,6 @@
 int main(int argc, char **argv)
 {
     t_inputs input;
-    t_philo philos;
 
     if(argc < 5 || argc > 6)
     {
@@ -15,8 +14,11 @@ int main(int argc, char **argv)
         printf("incorrect args\n");
         return(1);
     }
-    init_main(&input, &philos);
-    ft_prt(&input);
+    if(!memory_allocation(&input))
+        return(1);
+    init_data(&input);
     printf("all right bro\n");
+    memory_clean(&input);
+    system("leaks philo");
     return(0);
 }
