@@ -26,6 +26,9 @@ void memory_clean(t_inputs *input)
     while(i < input->philo_num)
     {
         pthread_mutex_destroy(&input->forks[i]);
+        pthread_mutex_destroy(&input->philos[i].eat_nlock);
+        pthread_mutex_destroy(&input->philos[i].write_lock);
+        pthread_mutex_destroy(&input->philos[i].die_lock);
         i++;
     }
     free(input->philos);

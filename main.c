@@ -15,7 +15,10 @@ int main(int argc, char **argv)
         return(1);
     }
     if(!memory_allocation(&input))
+    {
+        system("leaks philo");
         return(1);
+    }
     init_data(&input);
     //while()
     if(!create_tread(&input))
@@ -23,7 +26,7 @@ int main(int argc, char **argv)
         printf("creat thread error\n");
         return(1);
     }
-    printf("all right bro\n");
+    //printf("all right bro\n");
     memory_clean(&input);
     system("leaks philo");
     return(0);

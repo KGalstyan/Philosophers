@@ -61,10 +61,5 @@ int correct_input(int ac, char **av, t_inputs *input)
         input->eat_num = ft_atoi(av[5]);
     else
         input->eat_num = -1;
-    printf("philo_num = %zu\n", input->philo_num);
-    printf("time_d = %zu\n", input->time_die);
-    printf("time_e = %zu\n", input->time_eat);
-    printf("time_s = %zu\n", input->time_sleep);
-    printf("eat_num = %jd\n", input->eat_num);
     return(1);
 }
