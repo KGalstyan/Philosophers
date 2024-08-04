@@ -28,7 +28,9 @@ void eat(t_philo *philos)
     philos->eaten_num++;
     pthread_mutex_unlock(&philos->eat_nlock);
     ft_usleep(philos->time_eat);
+    pthread_mutex_lock(&philos->time_lock);
     philos->last_eat_time = get_cur_time();
+    pthread_mutex_unlock(&philos->time_lock);
     pthread_mutex_unlock(philos->left_fork);
     pthread_mutex_unlock(philos->right_fork);
 }

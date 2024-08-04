@@ -16,7 +16,7 @@ int main(int argc, char **argv)
     }
     if(!memory_allocation(&input))
     {
-        system("leaks philo");
+        //system("leaks philo");
         return(1);
     }
     init_data(&input);
@@ -24,10 +24,12 @@ int main(int argc, char **argv)
     if(!create_tread(&input))
     {
         printf("creat thread error\n");
+        memory_clean(&input);
+        //system("leaks philo");
         return(1);
     }
     //printf("all right bro\n");
     memory_clean(&input);
-    system("leaks philo");
+    //system("leaks philo");
     return(0);
 }

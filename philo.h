@@ -27,6 +27,7 @@ typedef struct s_philo
     pthread_mutex_t write_lock;
     pthread_mutex_t eat_nlock;
     pthread_mutex_t die_lock;
+    pthread_mutex_t time_lock;
 } t_philo;
 
 typedef struct s_inputs
@@ -70,6 +71,9 @@ void _sleep(t_philo *philos);
 void think(t_philo *philos);
 void eat(t_philo *philos);
 int is_dead(t_philo *philos);
+
+// monitoring //
+int monitoring(t_inputs *input);
 
 
 #endif

@@ -6,7 +6,7 @@ void *philo_routine(void *pointer)
     philos = (t_philo *)pointer;
 
     if(philos->id % 2 == 0)
-        usleep(70);
+        usleep(philos->time_eat);
     while(!is_dead(philos))
     {
         eat(philos);
@@ -27,6 +27,8 @@ int create_tread(t_inputs *input)
             return(0);
         i++;
     }
+    while(monitoring(input))
+     ;
     i = 0;
     while(i < input->philo_num)
     {

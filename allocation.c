@@ -29,6 +29,7 @@ void memory_clean(t_inputs *input)
         pthread_mutex_destroy(&input->philos[i].eat_nlock);
         pthread_mutex_destroy(&input->philos[i].write_lock);
         pthread_mutex_destroy(&input->philos[i].die_lock);
+        pthread_mutex_destroy(&input->philos[i].time_lock);
         i++;
     }
     free(input->philos);

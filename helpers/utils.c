@@ -5,11 +5,6 @@ int	is_digit(char h)
 	return(h >= '0' && h <= '9');
 }
 
-// void ft_thistime(size_t time, t_inputs *input)
-// {
-// 	size_t moment = time - input->start_time;
-// 	printf("my time is %zu\n", moment);
-// }
 
 size_t get_cur_time(void)
 {
@@ -39,6 +34,7 @@ void print_message(t_philo *philos, char *str)
 
 	pthread_mutex_lock(&philos->write_lock);
 	time = get_cur_time() - philos->start_time;
-	printf("%zu %d %s\n", time, philos->id, str);
+	//if(!philos->is_dead)
+		printf("%zu %d %s\n", time, philos->id, str);
 	pthread_mutex_unlock(&philos->write_lock);
 }
