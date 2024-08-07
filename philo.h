@@ -18,7 +18,7 @@ typedef struct s_philo
 
     pthread_t thread;
     int id;
-    int eaten_num;
+    ssize_t eaten_num;
     size_t last_eat_time;
     size_t start_time;
     pthread_mutex_t *left_fork;

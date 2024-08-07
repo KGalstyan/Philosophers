@@ -10,7 +10,11 @@ void *philo_routine(void *pointer)
     while(!is_dead(philos))
     {
         eat(philos);
+        if(is_dead(philos))
+            break;
         _sleep(philos);
+        if(is_dead(philos))
+            break;
         think(philos);
     }
     return(NULL);
