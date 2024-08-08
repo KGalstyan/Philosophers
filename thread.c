@@ -10,11 +10,11 @@ void *philo_routine(void *pointer)
     while(!is_dead(philos))
     {
         eat(philos);
-        if(is_dead(philos))
-            break;
+        // if(is_dead(philos))
+        //     break;
         _sleep(philos);
-        if(is_dead(philos))
-            break;
+        // if(is_dead(philos))
+        //     break;
         think(philos);
     }
     return(NULL);
@@ -31,8 +31,8 @@ int create_tread(t_inputs *input)
             return(0);
         i++;
     }
-    while(monitoring(input))
-     ;
+    // while(monitoring(input))
+    //  ;
     i = 0;
     while(i < input->philo_num)
     {
