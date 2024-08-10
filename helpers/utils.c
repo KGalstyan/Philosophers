@@ -33,8 +33,10 @@ void print_message(t_philo *philos, char *str)
 	size_t time;
 
 	pthread_mutex_lock(&philos->write_lock);
+	pthread_mutex_lock(&philos->die_lock);
 	time = get_cur_time() - philos->start_time;
-	if(!philos->is_dead)
+	if(!philos->is_dead || (philos->philo_num == 1 && str[0] == 'd'))
 		printf("%zu %d %s\n", time, philos->id, str);
+	pthread_mutex_unlock(&philos->die_lock);
 	pthread_mutex_unlock(&philos->write_lock);
 }

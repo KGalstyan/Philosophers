@@ -31,8 +31,8 @@ int create_tread(t_inputs *input)
             return(0);
         i++;
     }
-    // while(monitoring(input))
-    //  ;
+    while(monitoring(input))
+     ;
     i = 0;
     while(i < input->philo_num)
     {
