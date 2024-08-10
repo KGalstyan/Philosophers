@@ -50,10 +50,12 @@ int monitoring(t_inputs *input)
         pthread_mutex_lock(&input->philos[i].time_lock);
         if(get_cur_time() - input->philos[i].last_eat_time >= input->time_die)
         {
-            print_message(&input->philos[i], "died");
-            die_all(input);
-            pthread_mutex_unlock(&input->philos[i].time_lock);
-            return(0);
+            if(print_message(&input->philos[i], "died"))
+            {
+                die_all(input);
+                pthread_mutex_unlock(&input->philos[i].time_lock);
+                return(0);
+            }
         }
         pthread_mutex_unlock(&input->philos[i].time_lock);
         i++;

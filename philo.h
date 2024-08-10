@@ -51,7 +51,7 @@ void ft_prt(t_inputs *input);
 
 size_t get_cur_time(void);
 void ft_usleep(size_t milisec);//, t_inputs *input);
-void print_message(t_philo *philos, char *str);
+int print_message(t_philo *philos, char *str);
 
 // input checkers //
 int correct_input(int ac, char **av, t_inputs *input);

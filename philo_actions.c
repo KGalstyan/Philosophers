@@ -14,7 +14,11 @@ void think(t_philo *philos)
 void eat(t_philo *philos)
 {
     pthread_mutex_lock(philos->left_fork);
-    print_message(philos, "has taken a fork");
+    if(!print_message(philos, "has taken a fork"))
+    {
+        pthread_mutex_unlock(philos->left_fork);
+        return ;
+    }
     if(philos->philo_num == 1)
     {
         pthread_mutex_lock(&philos->die_lock);
@@ -25,9 +29,20 @@ void eat(t_philo *philos)
         return ;
     }
     pthread_mutex_lock(philos->right_fork);
-    print_message(philos, "has taken a fork");
+    if(!print_message(philos, "has taken a fork"))
+    {
+        pthread_mutex_unlock(philos->right_fork);
+        pthread_mutex_unlock(philos->left_fork);
+        return ;
+    }
     pthread_mutex_lock(&philos->eat_nlock);
-    print_message(philos, "is eating");
+    if(!print_message(philos, "is eating"))
+    {
+        pthread_mutex_unlock(&philos->eat_nlock);
+        pthread_mutex_unlock(philos->right_fork);
+        pthread_mutex_unlock(philos->left_fork);
+        return ;
+    }
     philos->eaten_num++;
     pthread_mutex_unlock(&philos->eat_nlock);
     ft_usleep(philos->time_eat);
