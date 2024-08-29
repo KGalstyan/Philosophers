@@ -6,17 +6,17 @@ void *philo_routine(void *pointer)
     philos = (t_philo *)pointer;
 
     if(philos->id % 2 == 0)
-        usleep(philos->time_eat);
+        ft_usleep(philos->time_eat);
+    while(philos->input->is_ready == 0)
+        ;
     while(!is_dead(philos))
     {
         eat(philos);
-        // if(is_dead(philos))
-        //     break;
-        _sleep(philos);
-        // if(is_dead(philos))
-        //     break;
-        think(philos);
-    }
+        if(!is_dead(philos))
+            _sleep(philos);
+        if(!is_dead(philos))
+            think(philos);
+    }    
     return(NULL);
 }
 
@@ -31,6 +31,9 @@ int create_tread(t_inputs *input)
             return(0);
         i++;
     }
+    pthread_mutex_lock(&input->check_lock);
+    input->is_ready = 1;
+    pthread_mutex_unlock(&input->check_lock);
     while(monitoring(input))
      ;
     i = 0;

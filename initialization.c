@@ -27,6 +27,7 @@ void init_data(t_inputs *input)
         pthread_mutex_init(&input->philos[i].eat_nlock, NULL);
         pthread_mutex_init(&input->philos[i].die_lock, NULL);
         pthread_mutex_init(&input->philos[i].time_lock, NULL);
+        input->philos[i].input = input;
         i++;
     }
 }

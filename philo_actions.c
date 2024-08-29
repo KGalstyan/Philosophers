@@ -43,9 +43,9 @@ void eat(t_philo *philos)
         pthread_mutex_unlock(philos->left_fork);
         return ;
     }
+    ft_usleep(philos->time_eat);
     philos->eaten_num++;
     pthread_mutex_unlock(&philos->eat_nlock);
-    ft_usleep(philos->time_eat);
     pthread_mutex_lock(&philos->time_lock);
     philos->last_eat_time = get_cur_time();
     pthread_mutex_unlock(&philos->time_lock);

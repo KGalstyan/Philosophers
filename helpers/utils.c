@@ -25,7 +25,7 @@ void ft_usleep(size_t milisec)//,t_inputs *input)
 
 	start = get_cur_time();
 	while(milisec > get_cur_time() - start)// && (!input->is_dead)) 
-		;
+		usleep(500);
 }
 
 int print_message(t_philo *philos, char *str)
@@ -35,7 +35,7 @@ int print_message(t_philo *philos, char *str)
 	pthread_mutex_lock(&philos->write_lock);
 	pthread_mutex_lock(&philos->die_lock);
 	time = get_cur_time() - philos->start_time;
-	if(!philos->is_dead || (philos->philo_num == 1 && str[0] == 'd'))
+	if(!philos->is_dead || philos->philo_num == 1)
 	{
 		printf("%zu %d %s\n", time, philos->id, str);
 		pthread_mutex_unlock(&philos->die_lock);

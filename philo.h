@@ -7,8 +7,10 @@
 #include <stdlib.h>
 #include <sys/time.h>
 
+typedef struct s_philo t_philo;
+typedef struct s_inputs t_inputs;
 
-typedef struct s_philo
+struct s_philo
 {
     size_t philo_num;
     size_t time_die;
@@ -28,18 +30,22 @@ typedef struct s_philo
     pthread_mutex_t eat_nlock;
     pthread_mutex_t die_lock;
     pthread_mutex_t time_lock;
-} t_philo;
+    t_inputs *input;
+} ;
 
-typedef struct s_inputs
+struct s_inputs
 {
     size_t philo_num;
     size_t time_die;
     size_t time_eat;
     size_t time_sleep;
     ssize_t eat_num;
+    int is_ready;
+    pthread_mutex_t check_lock;
     pthread_mutex_t *forks;
     t_philo *philos;
-} t_inputs;
+} ;
+
 
 //helpers//
 size_t ft_strlen(char *str);
