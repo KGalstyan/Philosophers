@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kgalstya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/12 17:05:48 by kgalstya          #+#    #+#             */
+/*   Updated: 2024/09/12 17:06:29 by kgalstya         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PHILO_H
 #define PHILO_H
 
@@ -56,7 +68,7 @@ int	is_digit(char h);
 void ft_prt(t_inputs *input);
 
 size_t get_cur_time(void);
-void ft_usleep(size_t milisec);//, t_inputs *input);
+void ft_usleep(size_t milisec);
 int print_message(t_philo *philos, char *str);
 
 // input checkers //
@@ -80,6 +92,5 @@ int is_dead(t_philo *philos);
 
 // monitoring //
 int monitoring(t_inputs *input);
-
 
 #endif

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   correct_input.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kgalstya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/12 17:05:25 by kgalstya          #+#    #+#             */
+/*   Updated: 2024/09/12 17:08:27 by kgalstya         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
 int input_checker(char *str)
@@ -7,26 +19,26 @@ int input_checker(char *str)
     i = 0;
     if(!str[i])
     {
-        printf("nothing in arg value !?\n");
+        // printf("nothing in arg value !?\n");
         return(1);
     }
     if(ft_strlen(str) > 10)
     {
-        printf("Value is incorrect\n");
+        // printf("Value is incorrect\n");
         return(1);
     }
     while(str[i])
     {
         if(!is_digit(str[i]))
         {
-            printf("incorrect argument in include\n");
+            // printf("incorrect argument in include\n");
             return(1);
         }
         i++;
     }
     if(ft_atoi(str) > 2147483647)
     {
-        printf("Maxerror\n");
+        // printf("Maxerror\n");
         return(1);
     }
     return(0);
@@ -45,12 +57,12 @@ int correct_input(int ac, char **av, t_inputs *input)
     }
     if(ft_atoi(av[1]) == 0 || ft_atoi(av[1]) > 200)
     {
-        printf("1st arg is incorrect\n");
+        // printf("1st arg is incorrect\n");
         return(0);
     }
     if(ft_atoi(av[2]) < 60 || ft_atoi(av[3]) < 60 || ft_atoi(av[2]) < 60)
     {
-        printf("2 or 3 or 4 is wrong\n");
+        // printf("2 or 3 or 4 is wrong\n");
         return(0);
     }
     input->philo_num = ft_atoi(av[1]);

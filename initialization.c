@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   initialization.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kgalstya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/12 17:05:29 by kgalstya          #+#    #+#             */
+/*   Updated: 2024/09/12 17:05:30 by kgalstya         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
 void init_data(t_inputs *input)
@@ -30,5 +42,7 @@ void init_data(t_inputs *input)
         input->philos[i].input = input;
         i++;
     }
+    input->is_ready = 0;
+    pthread_mutex_init(&input->check_lock, NULL);
 }
 

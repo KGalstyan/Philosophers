@@ -6,16 +6,16 @@
 /*   By: kgalstya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 15:28:49 by kgalstya          #+#    #+#             */
-/*   Updated: 2024/07/13 17:34:37 by kgalstya         ###   ########.fr       */
+/*   Updated: 2024/09/12 17:07:25 by kgalstya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-size_t ft_atoi(const char *nptr)
+size_t	ft_atoi(const char *nptr)
 {
-	size_t      num;
-	int			n;
+	size_t	num;
+	int		n;
 
 	n = 0;
 	num = 0;
