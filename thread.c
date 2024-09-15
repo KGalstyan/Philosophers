@@ -6,7 +6,7 @@
 /*   By: kgalstya <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 17:05:58 by kgalstya          #+#    #+#             */
-/*   Updated: 2024/09/12 17:05:59 by kgalstya         ###   ########.fr       */
+/*   Updated: 2024/09/15 15:07:29 by kgalstya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@ void	*philo_routine(void *pointer)
 	t_philo	*philos;
 
 	philos = (t_philo *)pointer;
-    while (1)
+	while (1)
 	{
 		pthread_mutex_lock(&philos->input->check_lock);
-		if(philos->input->is_ready == 1)
+		if (philos->input->is_ready == 1)
 		{
 			pthread_mutex_unlock(&philos->input->check_lock);
-			break;
+			break ;
 		}
-    	pthread_mutex_unlock(&philos->input->check_lock);
+		pthread_mutex_unlock(&philos->input->check_lock);
 	}
 	if (philos->id % 2 == 0)
-	    ft_usleep(philos->time_eat);
+		ft_usleep(philos->time_eat);
 	while (!is_dead(philos))
 	{
 		eat(philos);
